@@ -115,6 +115,5 @@ function DetailedQuotesTable() {
       </Card>
   );
 }
-                  // ActionsComponent={TablePaginationActionsWrapped}
 
 export default DetailedQuotesTable;
