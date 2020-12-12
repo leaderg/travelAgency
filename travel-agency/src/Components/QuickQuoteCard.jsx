@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -38,15 +39,75 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//React Functional Component with React Hooks
+
 function QuickQuoteCard() {
   const classes = useStyles();
-  const [selectedDate, setDate] = useState(moment());
-  const [inputValue, setInputValue] = useState(moment().format("YYYY-MM-DD"));
 
-  const handleDateChange = (date, value) => {
-    setDate(date);
-    setInputValue(value);
+  const [client_name, setName] = useState('');
+  const [client_email, setEmail] = useState('');
+  const [point_of_departure, setDeparture] = useState('');
+  const [point_of_destination, setDestination] = useState('');
+  const [number_of_passengers, setPassengers] = useState(1);
+  const [transportation, setTransportation] = useState('rental')
+  const [departure_date, setDepartureDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
+  const [return_date, setReturnDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
+
+  //MUI Datepicker have a special onChange with two values.
+  const [inputDepartureDate, setDepartureInputDate] = useState(moment().format("DD-MM-YYYY"));
+  const [inputReturnDate, setReturnInputDate] = useState(moment().format("DD-MM-YYYY"));
+
+  const handleDepartureDateChange = (date, value) => {
+    setDepartureDate(moment(date).format('YYYY-MM-DDTHH:mm:ssZ'));
+    setDepartureInputDate(value);
   };
+
+  const handleReturnDateChange = (date, value) => {
+    setReturnDate(moment(date).format('YYYY-MM-DDTHH:mm:ssZ'));
+    setReturnInputDate(value);
+  };
+
+  const handleDepartureChange = ( e ) => {
+    setDeparture(e.target.value);
+  }
+
+  const handleDestinationChange = ( e ) => {
+    setDestination(e.target.value);
+  }
+
+  const handleNameChange = ( e ) => {
+    setName(e.target.value);
+  }
+
+  const handleEmailChange = ( e ) => {
+    setEmail(e.target.value);
+  }
+
+  const handlePassengerChange = ( e ) => {
+    setPassengers(e.target.value);
+  }
+
+  const handleTransportationChange = ( e ) => {
+    setTransportation(e.target.value);
+  }
+
+  const handleSubmit = ( e ) => {
+    e.preventDefault();
+    axios
+    .post(`/api/quotes/quick`, {
+      client_name,
+      client_email,
+      point_of_departure,
+      point_of_destination,
+      number_of_passengers,
+      transportation,
+      departure_date,
+      return_date
+     })
+    .then(res => {
+
+    })
+  }
 
   return (
     <Card>
@@ -59,16 +120,16 @@ function QuickQuoteCard() {
           </IconButton>
       }/>
       <Divider/>
-      <form className={classes.form} noValidate>
+      <form className={classes.form} onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <InputLabel>Departure Date</InputLabel>
             <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
               <KeyboardDatePicker
-                showTodayButton={false}
+                showTodayButton={true}
                 format="MM/DD/YYYY"
-                value={selectedDate}
-                onChange={handleDateChange}
+                value={inputDepartureDate}
+                onChange={handleDepartureDateChange}
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -81,8 +142,8 @@ function QuickQuoteCard() {
               <KeyboardDatePicker
                 showTodayButton={false}
                 format="MM/DD/YYYY"
-                value={selectedDate}
-                onChange={handleDateChange}
+                value={inputReturnDate}
+                onChange={handleReturnDateChange}
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
@@ -91,12 +152,13 @@ function QuickQuoteCard() {
           </Grid>
           <Grid item xs={6} sm={6}>
             <TextField
-              name="from"
+              name="Departure City"
               variant="outlined"
               required
               fullWidth
-              label="From"
+              label="Departure City"
               autoFocus
+              onChange={handleDepartureChange}
             />
           </Grid>
           <Grid item xs={6} sm={6}>
@@ -104,8 +166,9 @@ function QuickQuoteCard() {
               variant="outlined"
               required
               fullWidth
-              label="Destination"
+              label="Destination City"
               name="destination"
+              onChange={handleDestinationChange}
             />
           </Grid>
           <Grid item xs={6}>
@@ -118,6 +181,7 @@ function QuickQuoteCard() {
               type="name"
               id="name"
               autoComplete="name"
+              onChange={handleNameChange}
             />
           </Grid>
           <Grid item xs={6}>
@@ -130,21 +194,21 @@ function QuickQuoteCard() {
               type="email"
               id="email"
               autoComplete="email"
+              onChange={handleEmailChange}
             />
           </Grid>
           <Grid item xs={6}>
             <FormControl fullWidth>
             <InputLabel id="travellers-label">Number of Travellers</InputLabel>
             <Select
-            label="travellers"
+              label="travellers"
               labelId="travellers-label"
               xs={12}
+              defaultValue={1}
+              onChange={handlePassengerChange}
             >
               {/*value={age}
               onChange={handleChange}*/}
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={2}>2</MenuItem>
               <MenuItem value={3}>3</MenuItem>
@@ -160,12 +224,12 @@ function QuickQuoteCard() {
             label="Transportation"
               labelId="transportation-label"
               xs={12}
+              defaultValue={"rental"}
+              onChange={handleTransportationChange}
             >
               {/*value={age}
               onChange={handleChange}*/}
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
+
               <MenuItem value={"rental"}>Rental Car</MenuItem>
               <MenuItem value={"bus"}>Bus</MenuItem>
               <MenuItem value={"taxi"}>Taxi</MenuItem>

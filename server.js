@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -7,6 +8,8 @@ const knexConfig  = require("./knexfile")["development"];
 const knex        = require("knex")(knexConfig);
 
 app.use(express.static(path.join(__dirname, 'travel-agency/build')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //GET All Quotes
 app.get('/api/quotes', (req,res) => {
@@ -44,6 +47,15 @@ app.get('/api/quotes/:id', (req,res) => {
     res.json(quote)
   })
 })
+
+//Post Quick Quote
+app.post('/api/quotes/quick', (req,res) => {
+  let quote = req.body;
+  knex('quotes')
+  .insert(quote)
+  .then(entry => res.sendStatus(200))
+  .catch(err => {res.send(err)})
+});
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/travel-agency/build/index.html'));

@@ -12,8 +12,10 @@ exports.seed = function(knex) {
           company_contact: 'Bill',
           point_of_departure: 'YYJ',
           point_of_destination: 'YVR',
-          number_of_passangers: 4,
-          transportation: 'Taxi'
+          number_of_passengers: 4,
+          transportation: 'Taxi',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
         {
           id: 2,
@@ -22,8 +24,10 @@ exports.seed = function(knex) {
           company_contact: 'Jenn',
           point_of_departure: 'YYZ',
           point_of_destination: 'YEG',
-          number_of_passangers: 2,
-          transportation: 'Bus'
+          number_of_passengers: 2,
+          transportation: 'Bus',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
         {
           id: 3,
@@ -32,8 +36,10 @@ exports.seed = function(knex) {
           company_contact: 'Bill',
           point_of_departure: 'YYC',
           point_of_destination: 'LAX',
-          number_of_passangers: 1,
-          transportation: 'Limosine'
+          number_of_passengers: 1,
+          transportation: 'Limosine',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
         {
           id: 4,
@@ -42,8 +48,10 @@ exports.seed = function(knex) {
           company_contact: 'Brian',
           point_of_departure: 'YQM',
           point_of_destination: 'YHZ',
-          number_of_passangers: 3,
-          transportation: 'Rental'
+          number_of_passengers: 3,
+          transportation: 'Rental',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
         {
           id: 5,
@@ -52,8 +60,10 @@ exports.seed = function(knex) {
           company_contact: 'Debbie',
           point_of_departure: 'YWG',
           point_of_destination: 'YVR',
-          number_of_passangers: 1,
-          transportation: 'Taxi'
+          number_of_passengers: 1,
+          transportation: 'Taxi',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
         {
           id: 6,
@@ -62,8 +72,10 @@ exports.seed = function(knex) {
           company_contact: 'Debbie',
           point_of_departure: 'YYZ',
           point_of_destination: 'HNL',
-          number_of_passangers: 2,
-          transportation: 'Taxi'
+          number_of_passengers: 2,
+          transportation: 'Taxi',
+          depature_date: '2020-11-12T00:00:00-07:00',
+          return_date: '2020-11-16T00:00:00-07:00'
         },
       ]);
     });
