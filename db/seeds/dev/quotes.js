@@ -49,7 +49,7 @@ exports.seed = function(knex) {
           point_of_departure: 'YQM',
           point_of_destination: 'YHZ',
           number_of_passengers: 3,
-          transportation: 'Rental',
+          transportation: 'Rental Car',
           depature_date: '2020-11-12T00:00:00-07:00',
           return_date: '2020-11-16T00:00:00-07:00'
         },

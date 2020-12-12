@@ -14,10 +14,11 @@ import {
   Card,
   CardHeader,
   IconButton,
-  Divider
+  Divider,
+  Snackbar
 } from "@material-ui/core"
 
-import { OpenWith, Send } from "@material-ui/icons"
+import { OpenWith, Send, Close } from "@material-ui/icons"
 
 //Date Frameworks
 import {
@@ -44,6 +45,16 @@ const useStyles = makeStyles((theme) => ({
 function QuickQuoteCard() {
   const classes = useStyles();
 
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  //Form State Handling
   const [client_name, setName] = useState('');
   const [client_email, setEmail] = useState('');
   const [point_of_departure, setDeparture] = useState('');
@@ -53,9 +64,21 @@ function QuickQuoteCard() {
   const [departure_date, setDepartureDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
   const [return_date, setReturnDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
 
-  //MUI Datepicker have a special onChange with two values.
   const [inputDepartureDate, setDepartureInputDate] = useState(moment().format("DD-MM-YYYY"));
   const [inputReturnDate, setReturnInputDate] = useState(moment().format("DD-MM-YYYY"));
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setDeparture('');
+    setDestination('');
+    setPassengers(1);
+    setTransportation('rental');
+    setDepartureDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
+    setReturnDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
+    setDepartureInputDate(moment().format("DD-MM-YYYY"));
+    setReturnInputDate(moment().format("DD-MM-YYYY"));
+  }
 
   const handleDepartureDateChange = (date, value) => {
     setDepartureDate(moment(date).format('YYYY-MM-DDTHH:mm:ssZ'));
@@ -105,11 +128,13 @@ function QuickQuoteCard() {
       return_date
      })
     .then(res => {
-
+      resetForm();
+      setOpen(true);
     })
   }
 
   return (
+    <>
     <Card>
       <CardHeader
         title="Quick Quote"
@@ -158,6 +183,7 @@ function QuickQuoteCard() {
               fullWidth
               label="Departure City"
               autoFocus
+              value={point_of_departure}
               onChange={handleDepartureChange}
             />
           </Grid>
@@ -168,6 +194,7 @@ function QuickQuoteCard() {
               fullWidth
               label="Destination City"
               name="destination"
+              value={point_of_destination}
               onChange={handleDestinationChange}
             />
           </Grid>
@@ -181,6 +208,7 @@ function QuickQuoteCard() {
               type="name"
               id="name"
               autoComplete="name"
+              value={client_name}
               onChange={handleNameChange}
             />
           </Grid>
@@ -194,6 +222,7 @@ function QuickQuoteCard() {
               type="email"
               id="email"
               autoComplete="email"
+              value={client_email}
               onChange={handleEmailChange}
             />
           </Grid>
@@ -205,6 +234,7 @@ function QuickQuoteCard() {
               labelId="travellers-label"
               xs={12}
               defaultValue={1}
+              value={number_of_passengers}
               onChange={handlePassengerChange}
             >
               {/*value={age}
@@ -225,15 +255,13 @@ function QuickQuoteCard() {
               labelId="transportation-label"
               xs={12}
               defaultValue={"rental"}
+              value={transportation}
               onChange={handleTransportationChange}
             >
-              {/*value={age}
-              onChange={handleChange}*/}
-
-              <MenuItem value={"rental"}>Rental Car</MenuItem>
-              <MenuItem value={"bus"}>Bus</MenuItem>
-              <MenuItem value={"taxi"}>Taxi</MenuItem>
-              <MenuItem value={"limosine"}>Limosine</MenuItem>
+              <MenuItem value={"Rental Car"}>Rental Car</MenuItem>
+              <MenuItem value={"Bus"}>Bus</MenuItem>
+              <MenuItem value={"Taxi"}>Taxi</MenuItem>
+              <MenuItem value={"Limosine"}>Limosine</MenuItem>
             </Select>
             </FormControl>
           </Grid>
@@ -249,6 +277,22 @@ function QuickQuoteCard() {
         </Button>
       </form>
     </Card>
+    <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        message="Quote created."
+        action={
+            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+              <Close fontSize="small" />
+            </IconButton>
+        }
+    />
+    </>
   );
 }
 

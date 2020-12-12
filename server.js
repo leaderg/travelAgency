@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'travel-agency/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//GET All Quotes
+//GET All Quotes - Pagination on client side.
 app.get('/api/quotes', (req,res) => {
   knex('quotes')
   .asCallback((err,result) => {

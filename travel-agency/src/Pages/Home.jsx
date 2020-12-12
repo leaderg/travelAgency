@@ -6,6 +6,8 @@ import QuoteTableCard from "../Components/QuoteTableCard"
 import QuickQuoteCard from "../Components/QuickQuoteCard"
 import LeadFeedCard from "../Components/LeadFeedCard"
 
+import DetailedQuotesTable from "../Components/DetailedQuotesTable"
+
 function Home() {
   return (
     <Container>
@@ -22,20 +24,8 @@ function Home() {
         <Grid item xs={4}>
           <LeadFeedCard />
         </Grid>
-        <Grid item xs={9}>
-          <Paper>Map</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper>Team Chat</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper>Sales</Paper>
-        </Grid>
-        <Grid item xs={5}>
-          <Paper>Pie Charts</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper>Pie Chart 2</Paper>
+        <Grid item xs={12}>
+          <DetailedQuotesTable />
         </Grid>
       </Grid>
     </Container>
