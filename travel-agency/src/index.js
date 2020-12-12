@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 
 import Home from './Pages/Home';
+import Quotes from './Pages/Quotes';
 
 import Navigation from './Components/Navigation';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navigation />
-    <Home />
+    <BrowserRouter>
+      <Navigation />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/quotes">
+          <Quotes />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

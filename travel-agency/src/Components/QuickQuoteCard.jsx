@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -140,10 +141,13 @@ function QuickQuoteCard() {
         title="Quick Quote"
         avatar={<Send />}
         action={
-          <IconButton aria-label="Quotes">
-            <OpenWith />
-          </IconButton>
-      }/>
+          <Link to='/quotes'>
+            <IconButton aria-label="Quotes">
+              <OpenWith />
+            </IconButton>
+          </Link>
+        }
+      />
       <Divider/>
       <form className={classes.form} onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>

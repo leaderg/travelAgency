@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import {
@@ -58,14 +59,17 @@ class QuoteTableCard extends Component {
         avatar={<History />}
         action={
           <>
-          <IconButton aria-label="Quotes" >
-            <Replay onClick={this.getList} />
-          </IconButton>
-          <IconButton aria-label="Quotes">
-            <OpenWith />
-          </IconButton>
+            <IconButton aria-label="Quotes" >
+              <Replay onClick={this.getList} />
+            </IconButton>
+            <Link to="/quotes">
+              <IconButton aria-label="Quotes">
+                <OpenWith />
+              </IconButton>
+            </Link>
           </>
-      }/>
+        }
+      />
       <Divider/>
       <CardContent>
         <Table>

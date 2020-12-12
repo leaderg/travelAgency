@@ -4,29 +4,22 @@ import {
 
 import QuoteTableCard from "../Components/QuoteTableCard"
 import QuickQuoteCard from "../Components/QuickQuoteCard"
-import LeadFeedCard from "../Components/LeadFeedCard"
 
 import DetailedQuotesTable from "../Components/DetailedQuotesTable"
 
-function Home() {
+function Quotes() {
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Paper>Welcome To Dashboard</Paper>
+          <Paper>Welcome To Quotes</Paper>
         </Grid>
-        <Grid item xs={4}>
-          <QuickQuoteCard />
-        </Grid>
-        <Grid item xs={4}>
-          <QuoteTableCard />
-        </Grid>
-        <Grid item xs={4}>
-          <LeadFeedCard />
+        <Grid item xs={12}>
+          <DetailedQuotesTable />
         </Grid>
       </Grid>
     </Container>
   );
 }
 
-export default Home;
+export default Quotes;

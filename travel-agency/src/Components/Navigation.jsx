@@ -1,4 +1,6 @@
 import * as React from "react"
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -89,23 +91,27 @@ const Navigation = () => {
         }
       }>
         <MenuList>
-          <MenuItem>
-            <IconButton onClick={handleSidebarClose}>
+          <MenuItem onClick={handleSidebarClose}>
+            <IconButton>
               <ArrowBack />
             </IconButton>
           </MenuItem>
-          <MenuItem>
-            <ListItemIcon>
-              <Home />
-            </ListItemIcon>
-            <ListItemText primary={'Home'} />
-          </MenuItem>
-          <MenuItem>
-            <ListItemIcon>
-              <AttachMoney />
-            </ListItemIcon>
-            <ListItemText primary={'Quotes'} />
-          </MenuItem>
+          <Link to="/">
+            <MenuItem>
+              <ListItemIcon>
+                <Home />
+              </ListItemIcon>
+              <ListItemText primary={'Home'} />
+            </MenuItem>
+          </Link>
+          <Link to="/quotes">
+            <MenuItem>
+              <ListItemIcon>
+                <AttachMoney />
+              </ListItemIcon>
+              <ListItemText primary={'Quotes'} />
+            </MenuItem>
+          </Link>
           <MenuItem>
             <ListItemIcon>
               <PlaylistAdd />
