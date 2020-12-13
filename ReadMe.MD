@@ -1,11 +1,11 @@
-#Travel Agency App
+# Travel Agency App
 This is a basic full stack application utilizing Postgres, React, Express, and Node. Material UI was used for the front end GUI and Knex was used for the back end database queries. This was a good learning exercise as I hadn't had any experience with Material UI.
 
-##Requirements
+## Requirements
 -NPM
 -Postgres
 
-##Installation
+## Installation
 1. Clone Repo
 2. In Terminal Run ```npm install``` at the main directory to install server dependancies.
 3. In terminal Run ```cd travel-agency/``` and ```npm install``` to install client dependancies
@@ -17,7 +17,7 @@ This is a basic full stack application utilizing Postgres, React, Express, and N
 9. In seperate terminal tabs run ```npm start``` in both the main directory and /travel-agency/ to start the back end and client.
 10. The server should now be active on localhost:8080 and the client on localhost:3000.
 
-##Comments and Notes
+## Comments and Notes
 -First time using Material UI. Pleased with the results, will investigate the framework further in the future.
 -Dates are handled as a string in the database and parsed on the front end with moment.
 -The application is lacking authentication and error handling aside from Database Not Null and the form validation.
