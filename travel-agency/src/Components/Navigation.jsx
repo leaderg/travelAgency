@@ -97,7 +97,7 @@ const Navigation = () => {
             </IconButton>
           </MenuItem>
           <Link to="/">
-            <MenuItem>
+            <MenuItem onClick={handleSidebarClose}>
               <ListItemIcon>
                 <Home />
               </ListItemIcon>
@@ -105,7 +105,7 @@ const Navigation = () => {
             </MenuItem>
           </Link>
           <Link to="/quotes">
-            <MenuItem>
+            <MenuItem onClick={handleSidebarClose}>
               <ListItemIcon>
                 <AttachMoney />
               </ListItemIcon>

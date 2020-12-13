@@ -1,9 +1,7 @@
 import {
-  Container, Grid, Paper
+  Container, Grid
 } from "@material-ui/core"
 
-import QuoteTableCard from "../Components/QuoteTableCard"
-import QuickQuoteCard from "../Components/QuickQuoteCard"
 import DetailedQuotesTable from "../Components/DetailedQuotesTable"
 import Header from "../Components/Header"
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import {
-  Container, Grid, CardHeader, Typography, Card
+  Grid, CardHeader, Typography, Card
 } from "@material-ui/core"
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,7 +44,7 @@ function Header({title}) {
           <CardHeader
             style={{textAlign: "center"}}
             title={count}
-            subheader={`New Quote${count != 1 ? "s" : ""}`}
+            subheader={`New Quote${count !== "1" ? "s" : ""}`}
           />
         </Grid>
         <Grid xs={2}>

@@ -13,8 +13,6 @@ import {
   CardContent,
   IconButton,
   Divider,
-  Box,
-  LinearProgress
 } from "@material-ui/core"
 
 import {

@@ -16,7 +16,6 @@ import {
   CardContent,
   Divider,
   Dialog,
-  List,
   ListItem,
   ListItemText,
   Grid

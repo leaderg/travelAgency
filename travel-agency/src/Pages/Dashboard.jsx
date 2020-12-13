@@ -1,5 +1,5 @@
 import {
-  Container, Grid, Paper
+  Container, Grid
 } from "@material-ui/core"
 
 import QuoteTableCard from "../Components/QuoteTableCard"
