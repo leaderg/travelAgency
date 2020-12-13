@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import {
-  Container, Grid, CardHeader, Typography
+  Container, Grid, CardHeader, Typography, Card
 } from "@material-ui/core"
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,7 +33,7 @@ function Header({title}) {
   }, []);
 
   return (
-    <Container className={classes.dashboardContainer}>
+    <Card className={classes.dashboardContainer}>
       <Grid container>
         <Grid className={classes.pageTitle} xs={6}>
           <Typography variant="h3" color="primary" align="center">
@@ -62,7 +62,7 @@ function Header({title}) {
           />
         </Grid>
       </Grid>
-    </Container>
+    </Card>
   );
 }
 

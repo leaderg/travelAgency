@@ -57,17 +57,17 @@ function QuickQuoteCard() {
   };
 
   //Form State Handling
-  const [client_name, setName] = useState('');
-  const [client_email, setEmail] = useState('');
-  const [point_of_departure, setDeparture] = useState('');
-  const [point_of_destination, setDestination] = useState('');
+  const [client_name, setName] = useState(null);
+  const [client_email, setEmail] = useState(null);
+  const [point_of_departure, setDeparture] = useState(null);
+  const [point_of_destination, setDestination] = useState(null);
   const [number_of_passengers, setPassengers] = useState(1);
   const [transportation, setTransportation] = useState('rental')
   const [departure_date, setDepartureDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
   const [return_date, setReturnDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
 
-  const [inputDepartureDate, setDepartureInputDate] = useState(moment().format("DD-MM-YYYY"));
-  const [inputReturnDate, setReturnInputDate] = useState(moment().format("DD-MM-YYYY"));
+  const [inputDepartureDate, setDepartureInputDate] = useState(moment().format("MM-DD-YYYY"));
+  const [inputReturnDate, setReturnInputDate] = useState(moment().format("MM-DD-YYYY"));
 
   const resetForm = () => {
     setName('');
@@ -78,8 +78,8 @@ function QuickQuoteCard() {
     setTransportation('rental');
     setDepartureDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
     setReturnDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
-    setDepartureInputDate(moment().format("DD-MM-YYYY"));
-    setReturnInputDate(moment().format("DD-MM-YYYY"));
+    setDepartureInputDate(moment().format("MM-DD-YYYY"));
+    setReturnInputDate(moment().format("MM-DD-YYYY"));
   }
 
   const handleDepartureDateChange = (date, value) => {
@@ -133,6 +133,9 @@ function QuickQuoteCard() {
       resetForm();
       setOpen(true);
     })
+    .catch(err => {
+      return;
+    })
   }
 
   return (
@@ -150,7 +153,7 @@ function QuickQuoteCard() {
         }
       />
       <Divider/>
-      <form className={classes.form} onSubmit={handleSubmit} noValidate>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <InputLabel>Departure Date</InputLabel>

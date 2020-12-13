@@ -54,7 +54,7 @@ app.post('/api/quotes/quick', (req,res) => {
   knex('quotes')
   .insert(quote)
   .then(entry => res.sendStatus(200))
-  .catch(err => {res.send(err)})
+  .catch(err => {res.sendStatus(400)})
 });
 
 app.get('*', (req,res) =>{
