@@ -62,7 +62,7 @@ function QuickQuoteCard() {
   const [point_of_departure, setDeparture] = useState(null);
   const [point_of_destination, setDestination] = useState(null);
   const [number_of_passengers, setPassengers] = useState(1);
-  const [transportation, setTransportation] = useState('rental')
+  const [transportation, setTransportation] = useState('Rental Car')
   const [departure_date, setDepartureDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
   const [return_date, setReturnDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
 
@@ -75,7 +75,7 @@ function QuickQuoteCard() {
     setDeparture('');
     setDestination('');
     setPassengers(1);
-    setTransportation('rental');
+    setTransportation('Rental Car');
     setDepartureDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
     setReturnDate(moment().format('YYYY-MM-DDTHH:mm:ssZ'));
     setDepartureInputDate(moment().format("MM-DD-YYYY"));
@@ -262,7 +262,7 @@ function QuickQuoteCard() {
             label="Transportation"
               labelId="transportation-label"
               xs={12}
-              defaultValue={"rental"}
+              defaultValue={"Rental Car"}
               value={transportation}
               onChange={handleTransportationChange}
             >
