@@ -33,12 +33,13 @@ import moment from "moment";
 //Material UI Styling
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: '100%',
+    width: '95%',
     marginTop: theme.spacing(3),
+    padding: theme.spacing(0, 1, 1, 1)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
+  }
 }));
 
 //React Functional Component with React Hooks
