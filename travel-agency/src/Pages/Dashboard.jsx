@@ -5,14 +5,14 @@ import {
 import QuoteTableCard from "../Components/QuoteTableCard"
 import QuickQuoteCard from "../Components/QuickQuoteCard"
 import LeadFeedCard from "../Components/LeadFeedCard"
-import DashboardHeader from "../Components/DashboardHeader"
+import Header from "../Components/Header"
 
 function Dashboard() {
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <DashboardHeader />
+          <Header title={"Dashboard"}/>
         </Grid>
         <Grid item xs={4}>
           <QuickQuoteCard />

@@ -53,7 +53,7 @@ class QuoteTableCard extends Component {
 
   render() {
   return (
-    <Card>
+    <Card style={{height: "100%"}}>
       <CardHeader
         title="Latest Quotes"
         avatar={<History />}

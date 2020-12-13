@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function DashboardHeader() {
+function Header({title}) {
 
   const [count, updateCount] = useState(0);
   const classes = useStyles();
@@ -37,7 +37,7 @@ function DashboardHeader() {
       <Grid container>
         <Grid className={classes.pageTitle} xs={6}>
           <Typography variant="h3" color="primary" align="center">
-            Dashboard
+            {title}
           </Typography>
         </Grid>
         <Grid xs={2}>
@@ -66,4 +66,4 @@ function DashboardHeader() {
   );
 }
 
-export default DashboardHeader;
+export default Header;

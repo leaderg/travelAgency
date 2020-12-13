@@ -17,7 +17,7 @@ let data = [
 function LeadFeedCard() {
 
   return (
-    <Card>
+    <Card style={{height: "100%"}}>
       <CardHeader
         title="New Leads"
         avatar={<MailOutline />}

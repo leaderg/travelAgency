@@ -4,15 +4,15 @@ import {
 
 import QuoteTableCard from "../Components/QuoteTableCard"
 import QuickQuoteCard from "../Components/QuickQuoteCard"
-
 import DetailedQuotesTable from "../Components/DetailedQuotesTable"
+import Header from "../Components/Header"
 
 function Quotes() {
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Paper>Welcome To Quotes</Paper>
+          <Header title="Quotes" />
         </Grid>
         <Grid item xs={12}>
           <DetailedQuotesTable />

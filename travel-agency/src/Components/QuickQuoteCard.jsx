@@ -136,7 +136,7 @@ function QuickQuoteCard() {
 
   return (
     <>
-    <Card>
+    <Card style={{height: "100%"}}>
       <CardHeader
         title="Quick Quote"
         avatar={<Send />}
