@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '95%',
     marginTop: theme.spacing(3),
-    padding: theme.spacing(0, 1, 1, 1)
+    padding: theme.spacing(0, 1)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
