@@ -24,7 +24,7 @@ app.get('/api/quotes/count', (req,res) => {
   knex('quotes')
   .count()
   .asCallback((err,result) => {
-    res.json(result);
+    res.json(result[0]);
   });
 })
 

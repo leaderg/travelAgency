@@ -209,14 +209,3 @@ function DetailedQuotesTable() {
 }
 
 export default DetailedQuotesTable;
-
-{/*<TableCell>ID</TableCell>
-              <TableCell>Client Name</TableCell>
-              <TableCell>Client Email</TableCell>
-              <TableCell>Departure</TableCell>
-              <TableCell>Destination</TableCell>
-              <TableCell>Departure Date</TableCell>
-              <TableCell>Return Date</TableCell>
-              <TableCell>Transportation</TableCell>
-              <TableCell>Passengers</TableCell>
-              <TableCell>Company Contact</TableCell>*/}
