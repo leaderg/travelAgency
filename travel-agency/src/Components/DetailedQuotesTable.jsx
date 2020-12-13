@@ -76,8 +76,8 @@ function DetailedQuotesTable() {
           title="Quotes"
           avatar={<TableChart />}
           action={
-            <IconButton aria-label="Quotes">
-              <Replay onClick={getListUpdates}/>
+            <IconButton onClick={getListUpdates} aria-label="Quotes">
+              <Replay />
             </IconButton>
         }/>
         <Divider/>
@@ -104,6 +104,7 @@ function DetailedQuotesTable() {
               hover
               style={{cursor: "pointer"}}
               onClick={() => handleQuoteSelect(row)}
+              key={row.id}
             >
               <TableCell>{row.id}</TableCell>
               <TableCell>{row.client_name}</TableCell>

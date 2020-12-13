@@ -57,10 +57,10 @@ function QuickQuoteCard() {
   };
 
   //Form State Handling
-  const [client_name, setName] = useState(null);
-  const [client_email, setEmail] = useState(null);
-  const [point_of_departure, setDeparture] = useState(null);
-  const [point_of_destination, setDestination] = useState(null);
+  const [client_name, setName] = useState(undefined);
+  const [client_email, setEmail] = useState(undefined);
+  const [point_of_departure, setDeparture] = useState(undefined);
+  const [point_of_destination, setDestination] = useState(undefined);
   const [number_of_passengers, setPassengers] = useState(1);
   const [transportation, setTransportation] = useState('Rental Car')
   const [departure_date, setDepartureDate] = useState(moment().format('YYYY-MM-DDTHH:mm:ssZ'));

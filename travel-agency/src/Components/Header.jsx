@@ -35,26 +35,26 @@ function Header({title}) {
   return (
     <Card className={classes.dashboardContainer}>
       <Grid container>
-        <Grid className={classes.pageTitle} xs={6}>
+        <Grid className={classes.pageTitle} item xs={6}>
           <Typography variant="h3" color="primary" align="center">
             {title}
           </Typography>
         </Grid>
-        <Grid xs={2}>
+        <Grid item xs={2}>
           <CardHeader
             style={{textAlign: "center"}}
             title={count}
             subheader={`New Quote${count !== "1" ? "s" : ""}`}
           />
         </Grid>
-        <Grid xs={2}>
+        <Grid item xs={2}>
           <CardHeader
             style={{textAlign: "center"}}
             title={"13"}
             subheader={"New Leads"}
           />
         </Grid>
-        <Grid xs={2}>
+        <Grid item xs={2}>
           <CardHeader
             style={{textAlign: "center"}}
             title={"4"}

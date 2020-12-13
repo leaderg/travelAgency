@@ -57,8 +57,8 @@ class QuoteTableCard extends Component {
         avatar={<History />}
         action={
           <>
-            <IconButton aria-label="Quotes" >
-              <Replay onClick={this.getList} />
+            <IconButton onClick={this.getList} aria-label="Quotes" >
+              <Replay />
             </IconButton>
             <Link to="/quotes">
               <IconButton aria-label="Quotes">
@@ -81,7 +81,7 @@ class QuoteTableCard extends Component {
           </TableHead>
           <TableBody>
             {this.state.list.map(row => (
-            <TableRow>
+            <TableRow key={row.id}>
               <TableCell>{row.id}</TableCell>
               <TableCell>{row.client_name}</TableCell>
               <TableCell>{row.point_of_departure}</TableCell>

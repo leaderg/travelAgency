@@ -60,10 +60,10 @@ const Navigation = () => {
     <React.Fragment>
       <AppBar position="static">
         <Toolbar>
-          <Grid container spacing={24}>
+          <Grid container>
             <Grid item xs={10}>
-              <IconButton edge="start" color="inherit" aria-label="home">
-                <Menu onClick={handleSidebarOpen} fontSize="large" />
+              <IconButton onClick={handleSidebarOpen} edge="start" color="inherit" aria-label="home">
+                <Menu fontSize="large" />
               </IconButton>
             </Grid>
             <Grid item xs={2}>

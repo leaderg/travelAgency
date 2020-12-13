@@ -34,8 +34,8 @@ function LeadFeedCard() {
         <Divider/>
       <CardContent>
       <List>
-        { data.map(entry => (
-        <ListItem>
+        { data.map((entry, index) => (
+        <ListItem key={index}>
           <ListItemAvatar>
             <Avatar src={entry.avatar}/>
           </ListItemAvatar>
