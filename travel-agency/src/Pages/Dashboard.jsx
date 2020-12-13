@@ -8,7 +8,7 @@ import LeadFeedCard from "../Components/LeadFeedCard"
 
 import DetailedQuotesTable from "../Components/DetailedQuotesTable"
 
-function Home() {
+function Dashboard() {
   return (
     <Container>
       <Grid container spacing={2}>
@@ -29,4 +29,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;

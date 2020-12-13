@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 
-import Home from './Pages/Home';
+import Dashboard from './Pages/Dashboard';
 import Quotes from './Pages/Quotes';
 
 import Navigation from './Components/Navigation';
@@ -14,7 +14,7 @@ ReactDOM.render(
       <Navigation />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Dashboard />
         </Route>
         <Route path="/quotes">
           <Quotes />
